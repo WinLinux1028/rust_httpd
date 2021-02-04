@@ -63,7 +63,7 @@ async fn handle(req: Request<Body>) -> Result<Response<Body>, Infallible> {
     } else if hyper::Method::HEAD == req.method() {
         return match head(req).await {
             Ok(o) => Ok(o),
-            Err(_) => Ok(badreq().await),
+            Err(_) => Ok(badreq_size().await),
         };
     } else {
         Ok(badreq().await)
