@@ -1,0 +1,39 @@
+[package]
+name = "rust_httpd"
+version = "0.1.0"
+authors = ["WinLinux1028 <exsample@protonmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+opt-level = 3
+lto = true
+codegen-units = 1
+incremental = true
+debug-assertions = true
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+incremental = true
+debug-assertions = true
+overflow-checks = true
+
+[dependencies]
+useful_static = "0.2"
+toml = "0.5"
+
+[dependencies.tokio]
+version = "1"
+features = ["full"]
+
+[dependencies.hyper]
+version = "0.14"
+features = ["full"]
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]
